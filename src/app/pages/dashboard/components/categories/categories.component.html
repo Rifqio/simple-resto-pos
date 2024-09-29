@@ -1,0 +1,11 @@
+<div>
+    <h3 class="font-semibold text-lg mb-4">Categories</h3>
+    <div class="flex gap-4">
+        @for (category of categories; track $index) {
+          <div class="badge border-2 text-gray-400 text-lg hover:bg-primaryTheme cursor-pointer hover:border-primaryTheme font-semibold bg-gray-200 border-gray-300 py-2 px-4 lg:py-6 lg:px-8 badge-outline hover:text-white">
+              {{ category.label }}
+          </div>
+        }
+      </div>
+      <div class="divider w-full lg:mt-6"></div>
+</div>

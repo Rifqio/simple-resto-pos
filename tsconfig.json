@@ -23,7 +23,9 @@
         "lib": ["ES2022", "dom"],
         "paths": {
             "@components/*": ["app/shared/components/*"],
-            "@pages/*": ["app/pages/*"]
+            "@pages/*": ["app/pages/*"],
+            "@models/*": ["app/shared/models/*"],
+            "@dto/*": ["app/shared/dto/*"],
         }
     },
     "angularCompilerOptions": {
