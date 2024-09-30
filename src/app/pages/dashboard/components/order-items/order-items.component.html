@@ -61,11 +61,11 @@
         
                 <div class="flex justify-between items-center align-middle px-4 pb-6 lg:mt-4">
                     <div class="flex items-center align-middle gap-4">
-                        <button class="btn btn-circle">
+                        <button (click)="subtractQuantity(order.id)" class="btn btn-circle">
                             <ng-icon name="heroMinusSolid" size="24" />
                         </button>
                         <span class="text-xl font-semibold">{{ order.quantity }}</span>
-                        <button class="btn btn-warning btn-circle">
+                        <button (click)="addQuantity(order.id)" class="btn btn-warning btn-circle">
                             <ng-icon name="heroPlusSolid" size="24" />
                         </button>
                     </div>
