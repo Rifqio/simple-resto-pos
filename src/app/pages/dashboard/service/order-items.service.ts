@@ -40,10 +40,8 @@ export class OrderItemsService {
     }
 
     public updateOrderPrice(): void {
-        const orderPrice = this.orderItems.reduce(
-            (acc, item) => acc + item.totalPrice,
-            0
-        )
+        // prettier-ignore
+        const orderPrice = this.orderItems.reduce((acc, item) => acc + item.totalPrice, 0)
         this.orderPriceSubject.next(orderPrice)
         this.logger.info('Order price updated to ' + orderPrice)
     }

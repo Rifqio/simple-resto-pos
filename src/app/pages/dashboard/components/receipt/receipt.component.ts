@@ -1,4 +1,4 @@
-import { NgStyle } from '@angular/common'
+import { CommonModule } from '@angular/common'
 import { Component, OnDestroy, OnInit } from '@angular/core'
 import { OrderItemsService } from '@pages/dashboard/service'
 import { Subscription } from 'rxjs'
@@ -6,12 +6,14 @@ import { Subscription } from 'rxjs'
 @Component({
     selector: 'component-dashboard-receipt',
     standalone: true,
-    imports: [NgStyle],
+    imports: [CommonModule],
     templateUrl: './receipt.component.html'
 })
 
 export class ReceiptComponent implements OnInit, OnDestroy {
     protected totalPrice: number = 0
+    protected ppnTax: number = 0.10;
+    protected priceAfterTax: number = 0;
     protected totalOrderItems: number = 0;
     protected orderItemSubscription?: Subscription
 
@@ -23,6 +25,15 @@ export class ReceiptComponent implements OnInit, OnDestroy {
             this.totalOrderItems = this.orderItemService.totalOrderItems();
         })
     }
+
+    public getTotalTax() : number {
+        return this.totalPrice * this.ppnTax; 
+    }
+
+    public getPriceAfterTax(): number {
+        return this.getTotalTax() + this.totalPrice;
+    }
+    
 
     ngOnDestroy(): void {
         this.orderItemSubscription?.unsubscribe()

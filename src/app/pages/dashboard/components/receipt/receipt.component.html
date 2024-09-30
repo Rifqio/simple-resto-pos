@@ -11,18 +11,18 @@
                 <div class="p-4">
                     <div class="flex justify-between items-center align-middle">
                         <h3 class="text-lg">Subtotal</h3>
-                        <h3 class="text-lg font-semibold">${{ totalPrice }}</h3>
+                        <h3 class="text-lg font-semibold">{{ totalPrice | currency: 'USD' }}</h3>
                     </div>
                     <div class="flex justify-between items-center align-middle">
                         <h3 class="text-lg">PPN 10%</h3>
-                        <h3 class="font-semibold text-lg">$2</h3>
+                        <h3 class="font-semibold text-lg">{{ getTotalTax() | currency: 'USD' }}</h3>
                     </div>
                     <div
                         class="border-t-4 opacity-50 border-gray-300 border-dashed my-4"
                     ></div>
                     <div class="flex justify-between items-center align-middle">
                         <h3 class="text-lg">Total Amount</h3>
-                        <h3 class="font-semibold text-lg">$22</h3>
+                        <h3 class="font-semibold text-lg">{{ getPriceAfterTax() | currency: 'USD' }}</h3>
                     </div>
                 </div>
             </div>
