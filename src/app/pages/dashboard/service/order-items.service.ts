@@ -74,6 +74,7 @@ export class OrderItemsService {
         const updatedOrderItems = this.orderItems.slice()
         updatedOrderItems.splice(index, 1)
         this.orderItemsSubject.next(updatedOrderItems)
+        this.updateOrderPrice()
     }
 
     public totalOrderItems(): number {
