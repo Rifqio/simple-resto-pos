@@ -1,14 +1,12 @@
 {
-  "extends": [
-    "development"
-  ],
-  "hints": {
-    "button-type": "off",
-    "axe/name-role-value": [
-      "default",
-      {
-        "button-name": "off"
-      }
-    ]
-  }
+    "extends": ["development"],
+    "hints": {
+        "button-type": "off",
+        "axe/name-role-value": [
+            "default",
+            {
+                "button-name": "off"
+            }
+        ]
+    }
 }

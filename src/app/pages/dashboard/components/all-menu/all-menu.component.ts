@@ -1,86 +1,36 @@
-import { Component } from '@angular/core'
+import { Component, Inject, OnInit } from '@angular/core'
 import { AllMenuResponseDTO } from '@dto/all-menu.response.dto'
+import { Menu, OrderItem } from '@models/index'
+import { MenuService, OrderItemsService } from '@pages/dashboard/service'
 
 @Component({
     selector: 'component-dashboard-all-menu',
     standalone: true,
+    providers: [MenuService],
     templateUrl: './all-menu.component.html'
 })
-export class AllMenuComponent {
-    menus: Array<AllMenuResponseDTO> = [
-        {
-            category: 'Main Course',
-            menus: [
-                {
-                    category: 'Main Course',
-                    description: 'A delicious main course',
-                    name: 'Pizza Pepperoni',
-                    isAvailable: true,
-                    price: 100,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Main Course',
-                    description: 'A delicious main course',
-                    name: 'Spaghetti Bolognese',
-                    isAvailable: true,
-                    price: 12.99,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Main Course',
-                    description: 'A delicious main course',
-                    name: 'Roasted Chicken',
-                    isAvailable: true,
-                    price: 8.99,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Main Course',
-                    description: 'A delicious main course',
-                    name: 'Cheeseburger',
-                    isAvailable: true,
-                    price: 8.99,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Main Course',
-                    description: 'A delicious main course',
-                    name: 'Hotdog',
-                    isAvailable: true,
-                    price: 5.99,
-                    image: 'https://placehold.co/600x400'
-                }
-            ]
-        },
-        {
-            category: 'Side Dish',
-            menus: [
-                {
-                    category: 'Side Dish',
-                    description: 'A delicious side dish',
-                    name: 'Garlic Bread',
-                    isAvailable: true,
-                    price: 4.99,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Side Dish',
-                    description: 'A delicious side dish',
-                    name: 'French Fries',
-                    isAvailable: true,
-                    price: 2.99,
-                    image: 'https://placehold.co/600x400'
-                },
-                {
-                    category: 'Side Dish',
-                    description: 'A delicious side dish',
-                    name: 'Onion Rings',
-                    isAvailable: true,
-                    price: 3.99,
-                    image: 'https://placehold.co/600x400'
-                }
-            ]
-        }
-    ]
+export class AllMenuComponent implements OnInit {
+    protected menus: Array<AllMenuResponseDTO> = []
+    constructor(
+        private menuService: MenuService,
+        @Inject(OrderItemsService) private orderItemService: OrderItemsService
+    ) {}
+
+    ngOnInit(): void {
+        this.menus = this.menuService.menus
+    }
+
+    protected addToOrder(data: Menu): void {
+        const orderItem = new OrderItem({
+            id: data.id,
+            name: data.name,
+            image: data.image ?? '', 
+            extra: [],
+            quantity: 1,
+            price: data.price,
+            totalPrice: data.price,
+            note: ''
+        })
+        this.orderItemService.addOrderItem(orderItem)
+    }
 }

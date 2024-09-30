@@ -1,4 +1,5 @@
 import { Component } from '@angular/core'
+import { RouterLink, RouterLinkActive } from '@angular/router'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import {
     heroChevronDoubleRightSolid,
@@ -12,7 +13,7 @@ import {
 @Component({
     selector: 'component-sidebar',
     standalone: true,
-    imports: [NgIconComponent],
+    imports: [NgIconComponent, RouterLink, RouterLinkActive],
     providers: [
         provideIcons({
             heroHomeSolid,
@@ -27,7 +28,7 @@ import {
 })
 export class SidebarComponent {
     protected items = [
-        { icon: 'heroHomeSolid', label: 'Home', link: '/' },
+        { icon: 'heroHomeSolid', label: 'Home', link: '/dashboard' },
         {
             icon: 'heroSquares2x2Solid',
             label: 'Categories',

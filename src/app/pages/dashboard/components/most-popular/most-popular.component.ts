@@ -9,6 +9,7 @@ import { Menu } from '@models/index'
 export class MostPopularComponent {
     protected mostPopularMenu: Array<Menu> = [
         {
+            id: 'MC-001',
             name: 'Spaghetti Bolognese',
             price: 12.99,
             description: 'Spaghetti with tomato sauce and minced meat',
@@ -17,6 +18,7 @@ export class MostPopularComponent {
             isAvailable: true
         },
         {
+            id: 'MC-012',
             name: 'Caesar Salad',
             price: 8.99,
             description: 'Romaine lettuce, croutons, parmesan cheese, and Caesar dressing',
@@ -25,6 +27,7 @@ export class MostPopularComponent {
             isAvailable: true
         },
         {
+            id: 'SD-001',
             name: 'Garlic Bread',
             price: 4.99,
             description: 'Bread topped with garlic and olive oil or butter',
@@ -33,6 +36,7 @@ export class MostPopularComponent {
             isAvailable: true
         },
         {
+            id: 'D-001',
             name: 'Tiramisu',
             price: 6.99,
             description: 'Coffee-flavored Italian dessert',

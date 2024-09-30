@@ -7,25 +7,24 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { MostPopularComponent } from './components/most-popular/most-popular.component'
 import { OrderDetailsComponent } from './components/order-details/order-details.component'
 import { OrderItemsComponent } from './components/order-items/order-items.component'
-import { ReceiptComponent } from "./components/receipt/receipt.component"
+import { ReceiptComponent } from './components/receipt/receipt.component'
 
 @Component({
     selector: 'page-dashboard',
     standalone: true,
     imports: [
-    NgIconComponent,
-    CategoriesComponent,
-    MostPopularComponent,
-    AllMenuComponent,
-    OrderDetailsComponent,
-    OrderItemsComponent,
-    NgClass,
-    ReceiptComponent
-],
+        NgIconComponent,
+        CategoriesComponent,
+        MostPopularComponent,
+        AllMenuComponent,
+        OrderDetailsComponent,
+        OrderItemsComponent,
+        NgClass,
+        ReceiptComponent
+    ],
     providers: [provideIcons({ heroMagnifyingGlassSolid })],
     templateUrl: './dashboard.page.html'
 })
-
 export class DashboardPage {
     protected orderType: string = 'dine-in'
 
