@@ -4,14 +4,14 @@
         <div class="p-4">
             <div class="flex justify-between items-center align-middle">
                 <h3 class="text-lg">Order Id</h3>
-                <h3 class="text-lg font-semibold">#42323</h3>
+                <h3 class="text-lg font-semibold">#{{ generateOrderId() }}</h3>
             </div>
             <div
                 class="border-t-4 opacity-50 border-gray-300 border-dashed my-4"
             ></div>
             <div class="flex justify-between items-center align-middle">
                 <h3 class="text-lg">Date</h3>
-                <h3 class="font-semibold text-lg">August 06, 2024</h3>
+                <h3 class="font-semibold text-lg">{{ currentDate | date: 'MMMM dd, yyyy' }}</h3>
             </div>
         </div>
     </div>

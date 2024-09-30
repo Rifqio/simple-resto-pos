@@ -1,0 +1,7 @@
+@if (orderStatus.Complete) {
+  <div class="badge w-[60%] bg-green-200 text-green-700 font-semibold badge-lg p-6">{{ status() }}</div>
+} @else if (orderStatus.Canceled) {
+  <div class="badge w-[60%] bg-red-200 text-red-700 font-semibold p-4 badge-lg">{{ status() }}</div>
+} @else if (orderStatus.OnHold) {
+  <div class="badge w-[60%] bg-yellow-200 text-yellow-700 font-semibold p-4 badge-lg">{{ status() }}</div>
+}

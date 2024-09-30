@@ -1,0 +1,52 @@
+<div class="overflow-x-auto mt-2 md:mt-4">
+    <table class="table text-xl">
+        <!-- head -->
+        <thead>
+            <tr class="text-center">
+                @for (th of tableHeaders; track $index) {
+                  <th class="text-xl">{{ th }}</th>
+                }
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (data of orders; track $index) {
+              <tr class="text-center">
+                  <td class="font-semibold">{{ data.id }}</td>
+                  <td>{{ data.details }}</td>
+                  <td>{{ data.date | date : 'dd/MM/YYYY' }}</td>
+                  <td>{{ data.time | date : 'HH:mm' }}</td>
+                  <td>{{ data.orderType }}</td>
+                  <td><table-order-status [status]="data.orderStatus" /></td>
+                  <td>{{ data.price | currency : 'USD' }}</td>
+                  <td class="flex align-middle items-center gap-4 lg:mt-3">
+                      <button>
+                          <ng-icon
+                              class="text-blue-500"
+                              name="heroPencil"
+                              size="24"
+                          />
+                      </button>
+
+                      <button>
+                          <ng-icon
+                              class="text-red-500"
+                              name="heroTrash"
+                              size="24"
+                          />
+                      </button>
+                  </td>
+              </tr>
+            }
+        </tbody>
+    </table>
+    <div class="divider"></div>
+    <!-- Pagination -->
+    <div class="flex flex-row-reverse my-4">
+        <div class="join">
+            @for (item of [].constructor(totalPage); track $index) {
+              <button class="join-item btn text-xl">{{ $index + 1 }}</button>
+            }
+        </div>
+    </div>
+</div>

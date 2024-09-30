@@ -2,12 +2,11 @@ import { Component } from '@angular/core'
 import { RouterLink, RouterLinkActive } from '@angular/router'
 import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import {
-    heroChevronDoubleRightSolid,
+    heroClipboardDocumentListSolid,
     heroCogSolid,
     heroDocumentSolid,
     heroHomeSolid,
-    heroSquares2x2Solid,
-    heroUserCircleSolid
+    heroSquares2x2Solid
 } from '@ng-icons/heroicons/solid'
 
 @Component({
@@ -17,11 +16,10 @@ import {
     providers: [
         provideIcons({
             heroHomeSolid,
-            heroChevronDoubleRightSolid,
             heroSquares2x2Solid,
-            heroUserCircleSolid,
             heroDocumentSolid,
-            heroCogSolid
+            heroCogSolid,
+            heroClipboardDocumentListSolid
         })
     ],
     templateUrl: './sidebar.component.html'
@@ -34,7 +32,7 @@ export class SidebarComponent {
             label: 'Categories',
             link: '/categories'
         },
-        { icon: 'heroUserCircleSolid', label: 'Orders', link: '/orders' },
+        { icon: 'heroClipboardDocumentListSolid', label: 'Orders', link: '/orders' },
         { icon: 'heroDocumentSolid', label: 'Profile', link: '/profile' },
         { icon: 'heroCogSolid', label: 'Settings', link: '/settings' }
     ]

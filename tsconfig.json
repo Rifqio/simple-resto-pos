@@ -26,6 +26,7 @@
             "@pages/*": ["app/pages/*"],
             "@models/*": ["app/shared/models/*"],
             "@dto/*": ["app/shared/dto/*"],
+            "@enum/*": ["app/shared/enum/*"]
         }
     },
     "angularCompilerOptions": {
