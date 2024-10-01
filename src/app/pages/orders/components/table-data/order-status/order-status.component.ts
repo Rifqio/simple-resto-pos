@@ -11,5 +11,5 @@ import { OrderStatus } from '@enum/index';
 })
 export class OrderStatusComponent {
     protected orderStatus = OrderStatus
-    public status = input.required<string>();
+    public status = input.required<OrderStatus>();
 }

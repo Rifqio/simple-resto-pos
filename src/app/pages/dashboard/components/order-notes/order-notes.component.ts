@@ -1,6 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core'
 import { FormsModule } from '@angular/forms'
-import { LoggerService } from 'app/shared/service/logger.service'
 
 @Component({
     selector: 'component-dashboard-order-notes',
@@ -10,7 +9,6 @@ import { LoggerService } from 'app/shared/service/logger.service'
 })
 
 export class OrderNotesComponent {
-    constructor(private logger: LoggerService){}
     @ViewChild('orderNotes')
     public orderNotesModal!: ElementRef
 
@@ -25,7 +23,6 @@ export class OrderNotesComponent {
     }
 
     public onAddNote(): void {
-        this.logger.info('Adding order note: ' + this.orderNote)
         this.onCloseModal()
     }
 }

@@ -20,7 +20,7 @@ export class ReceiptComponent implements OnInit, OnDestroy {
     constructor(private orderItemService: OrderItemsService) {}
 
     ngOnInit(): void {
-        this.orderItemService.orderPrice$.subscribe(() => {
+        this.orderItemSubscription = this.orderItemService.orderPrice$.subscribe(() => {
             this.totalPrice = this.orderItemService.orderPrice
             this.totalOrderItems = this.orderItemService.totalOrderItems();
         })

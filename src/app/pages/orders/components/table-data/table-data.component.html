@@ -11,7 +11,7 @@
         </thead>
         <tbody>
             @for (data of orders; track $index) {
-              <tr class="text-center">
+              <tr (click)="onShowOrderDetails(data)" class="text-center hover:bg-base-200 cursor-pointer">
                   <td class="font-semibold">{{ data.id }}</td>
                   <td>{{ data.details }}</td>
                   <td>{{ data.date | date : 'dd/MM/YYYY' }}</td>
@@ -49,4 +49,5 @@
             }
         </div>
     </div>
+    <table-order-details />
 </div>

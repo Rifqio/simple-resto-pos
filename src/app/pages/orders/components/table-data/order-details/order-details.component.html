@@ -1,0 +1,45 @@
+<dialog #orderDetails class="modal">
+    <div class="modal-box max-w-3xl">
+        <h1 class="text-2xl font-semibold">Order Details</h1>
+        <div class="divider"></div>
+        <div class="mt-4">
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order ID</p>
+                <p class="text-lg">{{ order?.id || '-' }}</p>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order Details</p>
+                <textarea class="text-lg textarea textarea-bordered" disabled>{{
+                    order?.details || '-'
+                }}</textarea>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order Date</p>
+                <p class="text-lg">{{ order?.date | date: 'dd/MM/YYYY' }}</p>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order Time</p>
+                <p class="text-lg">{{ order?.time | date: 'HH:mm' }}</p>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order Type</p>
+                <p class="text-lg">{{ order?.orderType }}</p>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Order Status</p>
+                <p class="text-lg">{{ order?.orderStatus }}</p>
+            </div>
+            <div class="grid grid-cols-2 mb-4">
+                <p class="text-lg font-semibold">Price</p>
+                <p class="text-lg">{{ order?.price | currency: 'USD' }}</p>
+            </div>
+        </div>
+        <form method="dialog">
+            <button
+                class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+                ✕
+            </button>
+        </form>
+    </div>
+</dialog>

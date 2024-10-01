@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 
 
 interface ILogger {
@@ -13,20 +13,26 @@ interface ILogger {
 })
 
 export class LoggerService implements ILogger {
+    public instance: string = '';
+
+    constructor(@Inject(String) instance: string) {
+        this.instance = instance;
+    }
+
     log(message: string): void {
-        console.log('[LOG] ' + message);
+        console.log(`[${this.instance}, LOG]  ${message}`);
     }
 
     error(message: string): void {
-        console.error('[ERROR] ' + message);
+        console.error(`[${this.instance}, ERROR]  ${message}`);
     }
 
     warn(message: string): void {
-        console.warn('[WARN] ' + message);
+        console.warn(`[${this.instance}, WARN] ${message}`);
     }
 
     info(message: string): void {
-        console.info('[INFO] ' + message);
+        console.info(`[${this.instance}, INFO]  ${message}`);
     }
 
 }
