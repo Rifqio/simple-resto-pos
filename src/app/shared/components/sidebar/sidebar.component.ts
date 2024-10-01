@@ -29,8 +29,8 @@ export class SidebarComponent {
         { icon: 'heroHomeSolid', label: 'Home', link: '/dashboard' },
         {
             icon: 'heroSquares2x2Solid',
-            label: 'Categories',
-            link: '/categories'
+            label: 'Tables',
+            link: '/tables'
         },
         { icon: 'heroClipboardDocumentListSolid', label: 'Orders', link: '/orders' },
         { icon: 'heroDocumentSolid', label: 'Profile', link: '/profile' },
