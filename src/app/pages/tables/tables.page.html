@@ -24,8 +24,8 @@
                   <div
                       [ngClass]="{
                       'bg-blue-200' : item === 'Available', 
-                      'bg-red-200': item !== 'Occupied',
-                      'bg-yellow-200': item !== 'Reserved',
+                      'bg-red-200': item === 'Occupied',
+                      'bg-yellow-200': item === 'Reserved',
                   }"
                       class="w-6 h-6 rounded-full"
                   ></div>

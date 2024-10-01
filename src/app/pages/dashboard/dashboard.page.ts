@@ -6,6 +6,7 @@ import { Subscription } from 'rxjs'
 import { AllMenuComponent } from './components/all-menu/all-menu.component'
 import { CategoriesComponent } from './components/categories/categories.component'
 import { MostPopularComponent } from './components/most-popular/most-popular.component'
+import { OpenBillComponent } from "./components/open-bill/open-bill.component"
 import { OrderDetailsComponent } from './components/order-details/order-details.component'
 import { OrderItemsComponent } from './components/order-items/order-items.component'
 import { ReceiptComponent } from './components/receipt/receipt.component'
@@ -15,15 +16,16 @@ import { OrderItemsService } from './service'
     selector: 'page-dashboard',
     standalone: true,
     imports: [
-        NgIconComponent,
-        CategoriesComponent,
-        MostPopularComponent,
-        AllMenuComponent,
-        OrderDetailsComponent,
-        OrderItemsComponent,
-        NgClass,
-        ReceiptComponent
-    ],
+    NgIconComponent,
+    CategoriesComponent,
+    MostPopularComponent,
+    AllMenuComponent,
+    OrderDetailsComponent,
+    OrderItemsComponent,
+    NgClass,
+    ReceiptComponent,
+    OpenBillComponent
+],
     providers: [provideIcons({ heroMagnifyingGlassSolid })],
     templateUrl: './dashboard.page.html'
 })
