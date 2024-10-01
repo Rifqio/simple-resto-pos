@@ -33,9 +33,11 @@
                 }
             </div>
         </div>
-        <button class="btn bg-blue-500 btn-lg text-white">
-            Select and Pay
-        </button>
+        @if (order?.price !== 0) {
+            <button class="btn bg-blue-500 btn-lg text-white">
+                Select and Pay
+            </button>
+        }
     </div>
     <component-tables-seat-list />
 </div>

@@ -1,5 +1,38 @@
 <div class="w-full h-full bg-gray-100 rounded-lg">
-    <div class="p-12">
-        <h1>Hello</h1>
+    <div class="p-12 grid grid-cols-5 gap-8">
+        @for (data of tables; track $index) {
+        <div
+            class="w-70 h-64 rounded-lg bg-white flex justify-center items-center border-2 hover:border-4 border-gray-200 mb-8 cursor-pointer group"
+            [ngClass]="{
+                'hover:border-blue-500': data.status === tableStatus.Available,
+                'hover:border-red-500': data.status === tableStatus.Occupied,
+                'hover:border-yellow-500': data.status === tableStatus.Reserved
+            }"
+            >
+            <div
+                class="w-44 tooltip h-44 rounded-full flex flex-col justify-center items-center border-2 border-transparent group-hover:border-4"
+                [ngClass]="{
+                    'bg-blue-200 group-hover:border-blue-500': data.status === tableStatus.Available,
+                    'bg-red-200 group-hover:border-red-500': data.status === tableStatus.Occupied,
+                    'bg-yellow-200 group-hover:border-yellow-500': data.status === tableStatus.Reserved
+                }"
+            >
+                <h1
+                    class="font-semibold text-5xl"
+                    [ngClass]="{
+                        'text-blue-500': data.status === tableStatus.Available,
+                        'text-red-500': data.status === tableStatus.Occupied,
+                        'text-yellow-500': data.status === tableStatus.Reserved
+                    }"
+                >
+                    {{ data.number }}
+                </h1>
+                <p class="mt-2 font-bold text-gray-600">
+                    Capacity: {{ data.capacity }}
+                </p>
+            </div>
+        </div>
+
+        }
     </div>
 </div>
