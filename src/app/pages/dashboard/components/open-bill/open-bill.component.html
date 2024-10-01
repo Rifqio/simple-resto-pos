@@ -30,21 +30,30 @@
 
 <dialog #billAmount class="modal">
     <div class="modal-box">
-        <button (click)="onCloseBillAmount()" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+        <button
+            (click)="onCloseBillAmount()"
+            class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+        >
+            ✕
+        </button>
         <h3 class="text-xl text-center font-bold my-4">Open Bill Amount</h3>
         <div class="flex justify-center items-center flex-col gap-4">
-            <input
-                type="text"
-                placeholder="Amount"
-                disabled
-                class="input input-bordered w-full max-w-xs"
-            />
+            <label class="input input-bordered flex items-center gap-2 w-full max-w-xs">
+                <h1>$</h1>
+                <input
+                    type="number"
+                    placeholder="Amount"
+                    disabled
+                    [value]="amount"
+                    class="disabled:text-blue-500"
+                />
+            </label>
             <div class="grid grid-cols-3 gap-2 w-full max-w-xs">
                 @for (k of keyboard; track $index) {
-                  <button (click)="onAddAmount(k)" class="btn w-full text-lg">{{ k }}</button>
+                <button (click)="onAddAmount(k)" class="btn w-full text-lg">
+                    {{ k }}
+                </button>
                 }
-                <button class="btn w-full text-lg">,</button>
-                <button class="btn w-full text-lg">0</button>
                 <button class="btn w-full text-lg">
                     <ng-icon
                         name="heroBackspace"
@@ -53,7 +62,7 @@
                     />
                 </button>
             </div>
-            <button class="btn w-1/2 bg-blue-500 text-white hover:bg-blue-700">
+            <button (click)="onConfirmAmount()" class="btn w-1/2 bg-blue-500 text-white hover:bg-blue-700">
                 Confirm
             </button>
         </div>

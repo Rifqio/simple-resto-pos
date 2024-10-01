@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core'
 import { OrderItem } from '@models/index'
+import { LoggerService } from 'app/shared/service/logger.service'
 import { BehaviorSubject } from 'rxjs'
 
 @Injectable({
     providedIn: 'root'
 })
 export class OrderItemsService {
+    private readonly logger = new LoggerService(this.constructor.name)
     private orderItemsSubject = new BehaviorSubject<Array<OrderItem>>([])
     private orderPriceSubject = new BehaviorSubject<number>(0)
 
@@ -22,7 +24,7 @@ export class OrderItemsService {
 
     public addOrderItem(orderItem: OrderItem): void {
         const existingItemIndex = this.getItemIndex(orderItem.id)
-
+    
         if (existingItemIndex !== -1) {
             this.updateItemQuantity(
                 existingItemIndex,
@@ -31,7 +33,6 @@ export class OrderItemsService {
         } else {
             this.orderItemsSubject.next([...this.orderItems, orderItem])
         }
-
         this.updateOrderPrice()
     }
 

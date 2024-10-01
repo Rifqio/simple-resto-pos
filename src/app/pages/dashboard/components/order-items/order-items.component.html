@@ -7,65 +7,78 @@
         </div>
     </div>
     <div class="lg:max-h-screen overflow-y-auto">
-        @if (orderItems.length !== null) {
-            @for (order of orderItems; track $index) {
-                <div class="border-2 border-gray-200 rounded-lg mb-4">
-                    <div class="grid grid-cols-3 px-4">
-                        <img
-                            [src]="order.image"
-                            alt="order.name"
-                            class="w-32 h-32 rounded-xl"
-                        />
-                        <div>
-                            <h1 class="text-xl font-semibold lg:mb-4 lg:mt-3">
-                                {{ order.name }}
-                            </h1>
-                            <div class="flex flex-col">
-                                <div class="flex gap-4">
-                                    <h3 class="font-semibold text-lg text-gray-400">
-                                        Note:
-                                    </h3>
-                                    <h3 class="font-light text-lg text-gray-400">
-                                        {{ order.note }}
-                                    </h3>
-                                </div>
-                            </div>
+        @if (orderItems.length !== null) { @for (order of orderItems; track
+        $index) {
+        <div class="border-2 border-gray-200 rounded-lg mb-4">
+            <div class="grid grid-cols-3 px-4">
+                <img
+                    [src]="order.image"
+                    alt="order.name"
+                    class="w-32 h-32 rounded-xl"
+                />
+                <div>
+                    <h1 class="text-xl font-semibold lg:mb-4 lg:mt-3">
+                        {{ order.name }}
+                    </h1>
+                    <div class="flex flex-col">
+                        <div class="flex gap-4">
+                            <h3 class="font-semibold text-lg text-gray-400">
+                                Note:
+                            </h3>
+                            <h3 class="font-light text-lg text-gray-400">
+                                {{ order.note }}
+                            </h3>
                         </div>
-                        <div class="flex flex-col gap-4 items-end lg:mt-4">
-                            <button class="btn btn-circle" (click)="removeOrderItem($index)">
-                                <ng-icon
-                                    name="heroTrashSolid"
-                                    size="24"
-                                    class="text-blue-500"
-                                />
-                            </button>
-            
-                            <button class="btn btn-circle" (click)="onShowOrderNotes()">
-                                <ng-icon
-                                    name="heroPencilSquareSolid"
-                                    size="24"
-                                    class="text-red-500"
-                                />
-                            </button>
-                        </div>
-                    </div>
-            
-                    <div class="flex justify-between items-center align-middle px-4 pb-6 lg:mt-4">
-                        <div class="flex items-center align-middle gap-4">
-                            <button (click)="subtractQuantity(order.id)" class="btn btn-circle">
-                                <ng-icon name="heroMinusSolid" size="24" />
-                            </button>
-                            <span class="text-xl font-semibold">{{ order.quantity }}</span>
-                            <button (click)="addQuantity(order.id)" class="btn btn-warning btn-circle">
-                                <ng-icon name="heroPlusSolid" size="24" />
-                            </button>
-                        </div>
-                        <h3 class="font-semibold text-xl lg:mt-2 lg:mr-2">${{ order.price }}</h3>
                     </div>
                 </div>
-            }
-        }
+                <div class="flex flex-col gap-4 items-end lg:mt-4">
+                    <button
+                        class="btn btn-circle"
+                        (click)="removeOrderItem($index)"
+                    >
+                        <ng-icon
+                            name="heroTrashSolid"
+                            size="24"
+                            class="text-blue-500"
+                        />
+                    </button>
+
+                    <button class="btn btn-circle" (click)="onShowOrderNotes()">
+                        <ng-icon
+                            name="heroPencilSquareSolid"
+                            size="24"
+                            class="text-red-500"
+                        />
+                    </button>
+                </div>
+            </div>
+
+            <div
+                class="flex justify-between items-center align-middle px-4 pb-6 lg:mt-4"
+            >
+                <div class="flex items-center align-middle gap-4">
+                    <button
+                        (click)="subtractQuantity(order.id)"
+                        class="btn btn-circle"
+                    >
+                        <ng-icon name="heroMinusSolid" size="24" />
+                    </button>
+                    <!-- prettier-ignore -->
+                    <span class="text-xl font-semibold">{{ order.quantity }}</span>
+                    <button
+                        (click)="addQuantity(order.id)"
+                        class="btn btn-warning btn-circle"
+                    >
+                        <ng-icon name="heroPlusSolid" size="24" />
+                    </button>
+                </div>
+                <h3 class="font-semibold text-xl lg:mt-2 lg:mr-2">
+                    ${{ order.price }}
+                </h3>
+            </div>
+        </div>
+        } }
     </div>
-  
+
     <component-dashboard-order-notes />
 </div>

@@ -27,11 +27,11 @@ export class LoggerService implements ILogger {
         console.error(`[${this.instance}, ERROR]  ${message}`);
     }
 
-    warn(message: string): void {
+    warn(message: any): void {
         console.warn(`[${this.instance}, WARN] ${message}`);
     }
 
-    info(message: string): void {
+    info(message: any): void {
         console.info(`[${this.instance}, INFO]  ${message}`);
     }
 

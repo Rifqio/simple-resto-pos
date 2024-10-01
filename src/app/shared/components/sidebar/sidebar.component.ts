@@ -4,9 +4,9 @@ import { NgIconComponent, provideIcons } from '@ng-icons/core'
 import {
     heroClipboardDocumentListSolid,
     heroCogSolid,
-    heroDocumentSolid,
     heroHomeSolid,
-    heroSquares2x2Solid
+    heroSquares2x2Solid,
+    heroUserCircleSolid
 } from '@ng-icons/heroicons/solid'
 
 @Component({
@@ -17,7 +17,7 @@ import {
         provideIcons({
             heroHomeSolid,
             heroSquares2x2Solid,
-            heroDocumentSolid,
+            heroUserCircleSolid,
             heroCogSolid,
             heroClipboardDocumentListSolid
         })
@@ -33,7 +33,7 @@ export class SidebarComponent {
             link: '/tables'
         },
         { icon: 'heroClipboardDocumentListSolid', label: 'Orders', link: '/orders' },
-        { icon: 'heroDocumentSolid', label: 'Profile', link: '/profile' },
+        { icon: 'heroUserCircleSolid', label: 'Profile', link: '/profile' },
         { icon: 'heroCogSolid', label: 'Settings', link: '/settings' }
     ]
 }

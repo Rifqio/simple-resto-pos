@@ -39,11 +39,11 @@ export class DashboardPage implements OnInit, OnDestroy {
     ngOnInit(): void {
         this.orderItemSubscription = this.orderItemService.orderItems$.subscribe(() => {
             this.totalOrderItems = this.orderItemService.totalOrderItems()
-        })    
+        });
     }
 
     ngOnDestroy(): void {
-        this.orderItemSubscription?.unsubscribe()
+        this.orderItemSubscription?.unsubscribe();
     }
     
     protected setOrderType(orderType: string): void {
