@@ -1,0 +1,74 @@
+<div class="px-6 sm:ml-32 grid grid-cols-[65%_1%_30%] gap-7 h-screen">
+    <div class="sm:mt-8">
+        <h1 class="text-5xl font-semibold">Payment</h1>
+        <div class="divider"></div>
+        <div role="alert" class="alert bg-blue-200 text-blue-500 font-semibold">
+            <ng-icon
+                name="heroInformationCircle"
+                size="24"
+                class="text-blue-500"
+            />
+            <span>New software update available.</span>
+        </div>
+        <div class="w-full border-2 my-4 border-gray-200 rounded-lg">
+            <div class="px-8 pt-8 pb-4">
+                @for (data of paymentData; track $index) {
+                <div class="flex justify-between mb-4">
+                    <h3 class="text-lg">{{ data.label }}</h3>
+                    <h3 class="text-lg font-semibold">
+                        {{ data.value | currency: 'USD' }}
+                    </h3>
+                </div>
+                }
+                <div class="border-2 border-gray-200 border-dashed mb-4"></div>
+                <div class="flex justify-between mb-4">
+                    <h3 class="text-lg">Total Amount</h3>
+                    <h3 class="text-lg font-semibold">
+                        {{ 529 | currency: 'USD' }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <div class="my-4">
+            <h1 class="text-3xl font-semibold text-blue-500 mt-12 mb-4">
+                Choose Payment Method
+            </h1>
+            <div
+                class="w-full flex justify-between items-center align-middle mb-4 p-6 rounded-lg border-2 border-gray-200"
+            >
+                <div class="flex gap-4 items-center align-middle">
+                    <input type="radio" title="Cash" class="radio p-2" />
+                    <h1 class="text-2xl">Cash</h1>
+                </div>
+                <input
+                    type="text"
+                    placeholder="Amount"
+                    class="input input-bordered w-full max-w-xs"
+                />
+            </div>
+            <div
+                class="w-full flex justify-between items-center align-middle mb-4 p-6 rounded-lg border-2 border-gray-200"
+            >
+                <div class="flex gap-4 items-center align-middle">
+                    <input type="radio" title="Cash" class="radio p-2" />
+                    <h1 class="text-2xl">Credit</h1>
+                </div>
+                <input
+                    type="text"
+                    placeholder="Amount"
+                    class="input input-bordered w-full max-w-xs"
+                />
+            </div>
+        </div>
+
+        <div class="w-full">
+            <button
+                class="btn btn-lg w-full bg-green-200 text-green-500 hover:bg-green-500 hover:text-green-200"
+            >
+                Confirm Payment
+            </button>
+        </div>
+    </div>
+    <div class="divider divider-horizontal"></div>
+</div>
