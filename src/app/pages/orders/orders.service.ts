@@ -28,6 +28,19 @@ export class OrdersService {
         return this.orderSubject.getValue();
     }
 
+    public clearOrder(): void {
+        this.logger.info('Clear order');
+        this.orderSubject.next(new Order({
+            id: '',
+            date: new Date(),
+            details: '',
+            orderStatus: OrderStatus.Complete,
+            orderType: OrderType.DineIn,
+            price: 0,
+            time: 0
+        }));
+    }
+
     public selectedOrder (data: Order) {
         this.logger.info('Selected order: ' + JSON.stringify(data));
         this.orderSubject.next(data);

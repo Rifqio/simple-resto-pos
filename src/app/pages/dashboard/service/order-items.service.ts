@@ -34,6 +34,7 @@ export class OrderItemsService {
             this.orderItemsSubject.next([...this.orderItems, orderItem])
         }
         this.updateOrderPrice()
+        this.logger.info('Order item added', JSON.stringify(orderItem))
     }
 
     public updateOrderPrice(): void {
@@ -73,6 +74,11 @@ export class OrderItemsService {
 
     public totalOrderItems(): number {
         return this.orderItems.length
+    }
+
+    public clearOrderItems(): void {
+        this.orderItemsSubject.next([])
+        this.orderPriceSubject.next(0)
     }
 
     private getItemIndex(id: string): number {

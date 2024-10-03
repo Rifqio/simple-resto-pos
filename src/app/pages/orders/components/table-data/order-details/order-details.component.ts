@@ -1,12 +1,12 @@
 import { CommonModule } from '@angular/common'
 import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnDestroy,
-  OnInit,
-  ViewChild
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    OnDestroy,
+    OnInit,
+    ViewChild
 } from '@angular/core'
 import { Order } from '@models/index'
 import { OrdersService } from '@pages/orders/orders.service'
@@ -44,6 +44,7 @@ export class OrderDetailsComponent implements OnInit, OnDestroy {
 
     ngOnDestroy(): void {
         this.orderSubscripion.unsubscribe()
+        this.orderService.clearOrder()
     }
 
     public onShowModal(): void {

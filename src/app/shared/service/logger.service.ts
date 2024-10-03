@@ -31,8 +31,8 @@ export class LoggerService implements ILogger {
         console.warn(`[${this.instance}, WARN] ${message}`);
     }
 
-    info(message: any): void {
-        console.info(`[${this.instance}, INFO]  ${message}`);
+    info(message: any, ...data: any): void {
+        console.info(`[${this.instance}, INFO]  ${message} | ${data}`);
     }
 
 }
