@@ -1,0 +1,57 @@
+<div class="border-2 border-gray-200 rounded-lg mb-4">
+    <div class="grid grid-cols-3 px-4">
+        <img
+            [src]="orderItem().image"
+            alt="order.name"
+            class="w-28 h-28 rounded-xl ml-2 mt-2"
+        />
+        <div class="mt-2">
+            <h1 class="text-xl font-semibold lg:mb-4 lg:mt-3">
+                {{ orderItem().name }}
+            </h1>
+            <div class="flex flex-col">
+                <div class="flex gap-4">
+                    <h3 class="font-semibold text-lg text-gray-400">Note:</h3>
+                    <h3 class="font-light text-lg text-gray-400">
+                        {{ orderItem().note }}
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col gap-4 items-end lg:mt-4">
+            <button class="btn btn-circle">
+                <ng-icon
+                    name="heroTrashSolid"
+                    size="24"
+                    class="text-blue-500"
+                />
+            </button>
+
+            <button class="btn btn-circle">
+                <ng-icon
+                    name="heroPencilSquareSolid"
+                    size="24"
+                    class="text-red-500"
+                />
+            </button>
+        </div>
+    </div>
+
+    <!-- prettier-ignore -->
+    <div class="flex justify-between items-center align-middle px-4 pb-6 lg:mt-4">
+        <div class="flex items-center align-middle gap-4">
+            <button class="btn btn-circle">
+                <ng-icon name="heroMinusSolid" size="24" />
+            </button>
+
+            <span class="text-xl font-semibold">{{ orderItem().quantity }}</span>
+            
+            <button class="btn btn-warning btn-circle">
+                <ng-icon name="heroPlusSolid" size="24" />
+            </button>
+        </div>
+        <h3 class="font-semibold text-xl lg:mt-2 lg:mr-2">
+            {{ orderItem().price | currency: 'USD' }}
+        </h3>
+    </div>
+</div>

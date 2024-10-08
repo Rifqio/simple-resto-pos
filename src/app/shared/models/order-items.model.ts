@@ -2,14 +2,14 @@ export class OrderItem {
     id: string
     name: string
     quantity: number
-    extra: Array<string>
-    note: string
+    extra?: Array<string>
+    note?: string
     price: number
     totalPrice: number
-    image: string
+    image?: string
 
     // prettier-ignore
-    constructor({ id, name, quantity, extra, note, price, totalPrice, image }: { id: string, name: string; quantity: number; extra: Array<string>; note: string; price: number; totalPrice: number; image: string }) {
+    constructor({ id, name, quantity, extra, note, price, totalPrice, image }: { id: string, name: string; quantity: number; extra?: Array<string>; note?: string; price: number; totalPrice: number; image?: string }) {
         this.id = id;
         this.name = name
         this.quantity = quantity
